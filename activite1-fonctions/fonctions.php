@@ -96,6 +96,7 @@ function calculerFacture(float $prixUnitaire, int $quantite, float $remise , flo
 
 // fonction caluler moyenne
 function calculerMoy(float ...$notes) : float {
+    if (!$notes) return 0;
     $total = 0;
     foreach($notes as $note) {
         $total += $note;
@@ -106,3 +107,56 @@ function calculerMoy(float ...$notes) : float {
     return $moy;
 }
 
+// function convertir device
+
+function convertirDevice(float $montant, float $taux) : float {
+    $result = $montant * $taux;
+    return $result;
+}
+
+// Étape 5 — Fonctions à boucle
+
+// function factoriel
+function factoriel(int $a) : int {
+    $fact = 1;
+    $i = 1;
+    while($i < $a) {
+        $i++;
+        $fact *= $i;
+    }
+    return $fact;
+}
+
+// fonction des nombres premiers
+function fibonacci(int $n): array {
+    $list = [];
+    $i = 2;
+    while ($i <= $n) {
+        $isPremier = true;
+        $x = 2;
+        while($x < $i) {
+            if($i % $x == 0) {
+                $isPremier = false;
+                break;
+            }
+            $x++;
+        }
+
+        if($isPremier) {
+            array_push($list, $i);
+        }
+        $i++;
+    }
+
+    return $list;
+}
+
+// fonction de calcul puissanse sans **
+function puissance(int $a) : int {
+    $rep = $a * $a;
+    return $rep;
+}
+
+echo puissance(9);
+
+// Exercice 2 — Manipuler les tableaux indexés
